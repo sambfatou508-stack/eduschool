@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  @media print {
+    /* Reset screen height constraints to allow multi-page printing */
+    html, body, #root {
+      height: auto !important;
+      min-height: 100% !important;
+      overflow: visible !important;
+      background: #ffffff !important;
+      color: #0f172a !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-size: 12pt !important;
+    }
+
+    /* Force all print-hidden elements to be completely removed from layout */
+    aside,
+    header,
+    nav,
+    .print\:hidden,
+    .no-print,
+    [data-print-hidden="true"],
+    button:not(.print-keep),
+    .sidebar,
+    .modal-backdrop:not(.print-printable) {
+      display: none !important;
+    }
+
+    /* Make main content container take full width and height with zero margins */
+    main {
+      overflow: visible !important;
+      height: auto !important;
+      max-height: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    /* Preserve colors, badges, table backgrounds in browser print preview */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* Page margins and pagination */
+    @page {
+      margin: 10mm 12mm;
+      size: A4 portrait;
+    }
+
+    /* Prevent awkward table row splits */
+    table {
+      page-break-inside: auto;
+      width: 100% !important;
+    }
+    tr {
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tfoot {
+      display: table-footer-group;
+    }
+
+    /* Avoid page breaks inside cards */
+    .printable-sheet,
+    .print-avoid-break {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+  }
+}

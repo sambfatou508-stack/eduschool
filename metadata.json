@@ -1,0 +1,6 @@
+{
+  "name": "EDU-SCHOOL",
+  "description": "Plateforme SaaS moderne de gestion d'école privée au Sénégal (élèves, scolarité, notes, présences, bulletins et finances).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
